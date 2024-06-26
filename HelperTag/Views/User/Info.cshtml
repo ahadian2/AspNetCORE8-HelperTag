@@ -1,0 +1,87 @@
+﻿@model HelperTag.Models.Person
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Info</title>
+</head>
+<body>
+    <div>
+        <span>@Model.Id</span>
+        <span>@Model.Name</span>
+        <span>@Model.Family</span>
+        <span>@Model.Description</span>
+        <span>@Model.Gender</span>
+    </div>
+    <hr />
+
+    <form asp-action="Info" asp-controller="User" method="post" >
+
+        <div>
+            <label asp-for="Id" style="display:block;"></label>
+@*             <span asp-validation-for="Id"></span> *@
+            <input asp-for="Id" />
+        </div>
+
+        <div>
+            <label asp-for="Name" style="display:block;"></label>
+            @* <span asp-validation-for="Name"></span> *@
+            <input asp-for="Name" />
+        </div>
+
+        <div>
+            <label asp-for="Family" style="display:block;"></label>
+            @* <span asp-validation-for="Family"></span> *@
+            <input asp-for="Family" />
+        </div>
+
+
+        <div>
+            <label asp-for="Description" style="display:block;"></label>
+            <textarea asp-for="Description"></textarea>
+        </div>
+
+
+@*         <div>
+            <label asp-for="Gender" style="display:block;"></label>
+            <input asp-for="Gender" />
+        </div> *@
+
+
+        <div>
+            <label asp-for="Gender" style="display:block;"></label>
+            <select asp-for="Gender">
+                <option value=true>مرد</option>
+                <option value=false>زن</option>
+            </select>
+
+        </div>
+
+
+        <div>
+            <div asp-validation-summary="All" style="color:red;"></div>
+        </div>
+
+        <div>
+            <input type="submit" value="ارسال" />
+        </div>
+
+    </form>
+
+
+    <a asp-action="Index" asp-controller="Home" asp-route-search="ماشین">Home Page</a>
+
+@*   <cache expires-after="@TimeSpan.FromSeconds(10)">
+      @DateTime.Now
+  </cache> *@
+
+  <script asp-append-version="true" src="~/js/site.js"></script>
+  <img asp-append-version="true" src="" />
+
+</body>
+</html>
